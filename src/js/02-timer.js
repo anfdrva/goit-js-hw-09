@@ -3,14 +3,12 @@ import "flatpickr/dist/flatpickr.min.css";
 
 const userInput = document.querySelector("#datetime-picker");
 const startBtn = document.querySelector("[data-start]");
-//const value = document.querySelector(".value");
 const dayTimer = document.querySelector("[data-days]");
 const hourTimer = document.querySelector("[data-hours]");
 const minuteTimer = document.querySelector("[data-minutes]");
 const secondTimer = document.querySelector("[data-seconds]");
 
 startBtn.addEventListener('click', heandlerStart);
-//console.log(userInput);
 startBtn.disabled = true;
 const currentDate = new Date();
 let userDate;
@@ -51,26 +49,16 @@ function heandlerStart() {
 }
 
 function convertMs(ms) {
-  // Number of milliseconds per unit of time
+  
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
   const day = hour * 24;
 
-  // Remaining days
   const days = Math.floor(ms / day);
-  // Remaining hours
   const hours = Math.floor((ms % day) / hour);
-  // Remaining minutes
   const minutes = Math.floor(((ms % day) % hour) / minute);
-  // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-
   return { days, hours, minutes, seconds };
 }
 
-// console.log(convertMs(2000)); 
-// console.log(convertMs(140000)); 
-// console.log(convertMs(24140000)); 
-
-//console.log(flatpickr);
